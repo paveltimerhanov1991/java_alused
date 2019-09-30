@@ -10,6 +10,6 @@ public class greeting {
         System.out.print("Type another number: ");
         int number2 = Integer.parseInt(reader.nextLine()); // Reads a string variable from the keyboard and transfers it to an integer
 
-        System.out.println("Sum of the numbers: "  + (number + number2));
+        System.out.println("Division: "  + number + " / " + number2 + " = " + (number / number2));
     }
 }

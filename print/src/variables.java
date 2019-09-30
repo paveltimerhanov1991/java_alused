@@ -1,11 +1,13 @@
 public class variables {
     public static void main(String[] args) {
-        int seconds =  60;
-        int minutes = 60;
-        int hours = 24;
-        int days = 365;
-        double result = ((seconds * minutes) * hours) * days;
-        System.out.println("There are " + result + "seconds in a year");
+        int x = 5;
+        int y = 4;
+
+        System.out.print(x);
+        System.out.print( " + ");
+        System.out.print(y);
+        System.out.print(" = ");
+        System.out.println(x + y);
     }
 }
 

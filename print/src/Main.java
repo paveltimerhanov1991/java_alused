@@ -1,9 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        DecreasingCounter counter = new DecreasingCounter(10);
+        Menu exactum = new Menu();
 
-        counter.printValue();
-        counter.decrease();
-        counter.decrease();
+        exactum.addMeal("Fish fingers with sour cream sauce");
+        exactum.addMeal("Vegetable casserole with salad cheese");
+        exactum.addMeal("Chicken and nacho salad");
+
+        exactum.printMeals();
+
+        exactum.clearMenu();
+        exactum.printMeals();
     }
 }

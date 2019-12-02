@@ -1,26 +1,36 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        LyyraCard pekka = new LyyraCard(20);
-        LyyraCard brian = new LyyraCard(30);
+        Scanner reader = new Scanner(System.in);
 
-        pekka.payGourmet();
-        brian.payEconomical();
+        BoundedCounter seconds = new BoundedCounter(59);
+        BoundedCounter minutes = new BoundedCounter(59);
+        BoundedCounter hours = new BoundedCounter(23);
 
-        System.out.println("Pekka: " + pekka);
-        System.out.println("Brian: " + brian);
+        System.out.print("seconds: ");
+        int s = reader.nextInt();
+        System.out.print("minutes: ");
+        int m = reader.nextInt();
+        System.out.print("hours: ");
+        int h = reader.nextInt();
 
-        pekka.loadMoney(20);
-        brian.payGourmet();
+        seconds.setValue(s);
+        minutes.setValue(m);
+        hours.setValue(h);
 
-        System.out.println("Pekka: " + pekka);
-        System.out.println("Brian: " + brian);
-
-        pekka.payEconomical();
-        pekka.payEconomical();
-        brian.loadMoney(50);
-
-        System.out.println("Pekka: " + pekka);
-        System.out.println("Brian: " + brian);
+        int i = 0;
+        while (i < 121) {
+            System.out.println(hours + ":" + minutes + ":" + seconds);
+            seconds.next();
+            if (seconds.getValue() == 0) {
+                minutes.next();
+                if (minutes.getValue() == 0) {
+                    hours.next();
+                }
+            }
+            i++;
+        }
     }
 }

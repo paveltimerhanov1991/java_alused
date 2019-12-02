@@ -1,36 +1,27 @@
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
-        BoundedCounter seconds = new BoundedCounter(59);
-        BoundedCounter minutes = new BoundedCounter(59);
-        BoundedCounter hours = new BoundedCounter(23);
+        NumberStatistics nsSum = new NumberStatistics();
+        NumberStatistics nsEven = new NumberStatistics();
+        NumberStatistics nsOdd = new NumberStatistics();
 
-        System.out.print("seconds: ");
-        int s = reader.nextInt();
-        System.out.print("minutes: ");
-        int m = reader.nextInt();
-        System.out.print("hours: ");
-        int h = reader.nextInt();
-
-        seconds.setValue(s);
-        minutes.setValue(m);
-        hours.setValue(h);
-
-        int i = 0;
-        while (i < 121) {
-            System.out.println(hours + ":" + minutes + ":" + seconds);
-            seconds.next();
-            if (seconds.getValue() == 0) {
-                minutes.next();
-                if (minutes.getValue() == 0) {
-                    hours.next();
-                }
+        System.out.println("Type numbers:");
+        int inputNum = reader.nextInt();
+        while (inputNum != -1) {
+            nsSum.addNumber(inputNum);
+            if (inputNum % 2 == 0) {
+                nsEven.addNumber(inputNum);
+            } else {
+                nsOdd.addNumber(inputNum);
             }
-            i++;
+            inputNum = reader.nextInt();
         }
+
+        System.out.println("sum: " + nsSum.sum());
+        System.out.println("sum of even: " + nsEven.sum());
+        System.out.println("sum of odd: " + nsOdd.sum());
     }
 }

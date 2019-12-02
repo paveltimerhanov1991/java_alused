@@ -1,27 +1,14 @@
-import java.util.Scanner;
-
 public class Main {
+
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
 
-        NumberStatistics nsSum = new NumberStatistics();
-        NumberStatistics nsEven = new NumberStatistics();
-        NumberStatistics nsOdd = new NumberStatistics();
+        Dice dice = new Dice(6);
 
-        System.out.println("Type numbers:");
-        int inputNum = reader.nextInt();
-        while (inputNum != -1) {
-            nsSum.addNumber(inputNum);
-            if (inputNum % 2 == 0) {
-                nsEven.addNumber(inputNum);
-            } else {
-                nsOdd.addNumber(inputNum);
-            }
-            inputNum = reader.nextInt();
+        int i = 0;
+        while (i < 10) {
+            System.out.println(dice.roll());
+            i++;
         }
 
-        System.out.println("sum: " + nsSum.sum());
-        System.out.println("sum of even: " + nsEven.sum());
-        System.out.println("sum of odd: " + nsOdd.sum());
     }
 }

@@ -1,14 +1,26 @@
 public class Main {
+
     public static void main(String[] args) {
-        Menu exactum = new Menu();
+        LyyraCard pekka = new LyyraCard(20);
+        LyyraCard brian = new LyyraCard(30);
 
-        exactum.addMeal("Fish fingers with sour cream sauce");
-        exactum.addMeal("Vegetable casserole with salad cheese");
-        exactum.addMeal("Chicken and nacho salad");
+        pekka.payGourmet();
+        brian.payEconomical();
 
-        exactum.printMeals();
+        System.out.println("Pekka: " + pekka);
+        System.out.println("Brian: " + brian);
 
-        exactum.clearMenu();
-        exactum.printMeals();
+        pekka.loadMoney(20);
+        brian.payGourmet();
+
+        System.out.println("Pekka: " + pekka);
+        System.out.println("Brian: " + brian);
+
+        pekka.payEconomical();
+        pekka.payEconomical();
+        brian.loadMoney(50);
+
+        System.out.println("Pekka: " + pekka);
+        System.out.println("Brian: " + brian);
     }
 }
